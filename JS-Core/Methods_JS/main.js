@@ -768,37 +768,37 @@
 
 
 
-const todos = [
-  { id: 1, title: "Помити посуд", completed: true },
-  { id: 2, title: "Зробити ДЗ", completed: false },
-  { id: 3, title: "Погуляти", completed: true },
-  { id: 4, title: "Почитати книгу", completed: false }
-];
+// const todos = [
+//   { id: 1, title: "Помити посуд", completed: true },
+//   { id: 2, title: "Зробити ДЗ", completed: false },
+//   { id: 3, title: "Погуляти", completed: true },
+//   { id: 4, title: "Почитати книгу", completed: false }
+// ];
 
 
 
 
-const completedTodos = todos.filter(c => c.completed === true);
+// const completedTodos = todos.filter(c => c.completed === true);
 
-console.log(completedTodos);
-
-
-const notCompletedTodos = todos.filter(nc => nc.completed === false);
-console.log(notCompletedTodos);
+// console.log(completedTodos);
 
 
-const evrTodos = todos.every(e => e.completed === true);
+// const notCompletedTodos = todos.filter(nc => nc.completed === false);
+// console.log(notCompletedTodos);
 
-console.log(evrTodos);
+
+// const evrTodos = todos.every(e => e.completed === true);
+
+// console.log(evrTodos);
 
 
-const someTodos = todos.some(el => el.completed === false);
+// const someTodos = todos.some(el => el.completed === false);
 
-console.log(someTodos);
+// console.log(someTodos);
 
-const findHW = todos.find(e => e.title === "Зробити ДЗ");
+// const findHW = todos.find(e => e.title === "Зробити ДЗ");
 
-console.log(findHW);
+// console.log(findHW);
 
 
 
