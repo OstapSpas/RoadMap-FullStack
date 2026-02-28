@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTTP Repeat</title>
+
+    <style>
+      body {
+        font-family: system-ui;
+        padding: 16px;
+      }
+
+      .status {
+        margin: 12px 0;
+      }
+
+      .error {
+        color: crimson;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Todos</h1>
+
+    <button id="load-btn">Load</button>
+    <button id = "load-user">Load User</button>
+    <button id = "load-todos">Load Todos</button>
+
+    <div id="status" class="status"></div>
+
+    <button id="prev-btn">Prev</button>
+    <button id="next-btn">Next</button>
+
+    <ul id="list"></ul>
+
+    <ul id="user-list"></ul>
+    <ul id="todo-list"></ul>
+    <label><input id="only-completed" type="checkbox"> Only completed</label>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
