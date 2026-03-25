@@ -6,30 +6,29 @@ import Footer from './components/Footer'
 import Skills from './components/Skills'
 import UserCard from './components/UserCard'
 import Counter from './components/Counter'
+import Liked from './components/Liked'
+
+import Theme from './components/Theme'
+
+import LiveInput from './components/LivePreview'
+
+import Form from './components/Form'
 function App() {
 
   return (
     <>
 
       <Header 
-        title="Hello, my name is Ostap"
+        title="Hello, my name is: "
         description="I am learning React step by step."
        />
       <Skills />
       <Welcome />
-      <UserCard 
-        name = "Ostap"
-        city = "Kosice"
-        role = "FullStack"
-      />
-
-
-      <UserCard 
-        name = "Bohdan"
-        city = "London"
-        role = "FrontEnd"
-      />
     <Counter />
+    <LiveInput />
+    <Form/>
+      {/* <Liked /> */}
+      <Theme />
       <Footer />
       
     </>

@@ -1,33 +1,17 @@
-import { useState } from "react";
+import { useState } from "react"
 
-function Counter() {
-    const [count,setCount] = useState(0);
+export default function Counter(){
+    const [counter, setCount] = useState(0);
 
-    function getStatus(){
-        let status = "";
-        if(count > 0){
-            return status = "Positive";
-        }else if(count < 0){
-           return status = "Negative"; 
-        }else{
-            return status = "Zero";
-        }
-        
-    }
+    
+
 
     return (
-        <div>
-            <h2>Count: {count} </h2>
-            <p>{getStatus()}</p>
-            <button onClick={() => setCount(count + 1)}>+</button>
-            <button onClick={() => setCount(count - 1)}>-</button>
-            <button onClick={() => setCount(0)}>Reset</button>
-
-        </div>
-        
-    );
+    
+    <>
+    <h2>count: {counter}</h2>
+    <button onClick={() => setCount(prev => prev + 1)}>+</button>
+    <button onClick={() => setCount(prev => prev + 1)}>-</button>
+    <button onClick={() => setCount(0)}>Reset</button>
+    </>)
 }
-
-
-
-export default Counter;
