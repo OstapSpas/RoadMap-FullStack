@@ -41,43 +41,19 @@ function Navbar() {
       </div>
 
       <ul className="nav-items">
-        <a href="#features" className="nav-link">
-          <li>Features</li>
-        </a>
-
-        <a href="#how" className="nav-link">
-          <li>How It Works</li>
-        </a>
-
-        <a href="#pricing" className="nav-link">
-          <li>Pricing</li>
-        </a>
-
-        <a href="#testimonials" className="nav-link">
-          <li>Testimonials</li>
-        </a>
+        <a href="#features" className="nav-link"><li>Features</li></a>
+        <a href="#how" className="nav-link"><li>How It Works</li></a>
+        <a href="#pricing" className="nav-link"><li>Pricing</li></a>
+        <a href="#testimonials" className="nav-link"><li>Testimonials</li></a>
       </ul>
 
       <div className="nav-actions">
-        <button
-          className="nav-theme-toggle"
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-        >
-          <img
-            className="nav-theme-icon"
-            src={theme === "light" ? Moon : Sun}
-            alt=""
-          />
+        <button className="nav-theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+          <img className="nav-theme-icon" src={theme === "light" ? Moon : Sun} alt="" />
         </button>
 
-        <button className="nav-login" onClick={goToLogin}>
-          Log In
-        </button>
-
-        <button className="nav-trial" onClick={goToSignup}>
-          Start Trial
-        </button>
+        <button className="nav-login nav-desktop-only" onClick={goToLogin}>Log In</button>
+        <button className="nav-trial nav-desktop-only" onClick={goToSignup}>Start Trial</button>
 
         <button
           className="nav-burger"
@@ -85,63 +61,23 @@ function Navbar() {
           aria-label="Open menu"
           aria-expanded={menuOpen}
         >
-          <span />
-          <span />
-          <span />
+          <span /><span /><span />
         </button>
       </div>
 
       <div className={`nav-mobile ${menuOpen ? "is-open" : ""}`}>
-        <button
-          className="nav-close"
-          onClick={() => setMenuOpen(false)}
-          aria-label="Close menu"
-        >
-          ✕
-        </button>
+        <button className="nav-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
 
         <div className="nav-mobile-links">
-          <a
-            className="nav-mobile-link"
-            href="#features"
-            onClick={() => setMenuOpen(false)}
-          >
-            Features
-          </a>
+          <a className="nav-mobile-link" href="#features" onClick={() => setMenuOpen(false)}>Features</a>
+          <a className="nav-mobile-link" href="#how" onClick={() => setMenuOpen(false)}>How It Works</a>
+          <a className="nav-mobile-link" href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a>
+          <a className="nav-mobile-link" href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a>
 
-          <a
-            className="nav-mobile-link"
-            href="#how"
-            onClick={() => setMenuOpen(false)}
-          >
-            How It Works
-          </a>
+          <div className="nav-mobile-divider" />
 
-          <a
-            className="nav-mobile-link"
-            href="#pricing"
-            onClick={() => setMenuOpen(false)}
-          >
-            Pricing
-          </a>
-
-          <a
-            className="nav-mobile-link"
-            href="#testimonials"
-            onClick={() => setMenuOpen(false)}
-          >
-            Testimonials
-          </a>
-        </div>
-
-        <div className="nav-mobile-actions">
-          <button className="nav-login" onClick={goToLogin}>
-            Log In
-          </button>
-
-          <button className="nav-trial" onClick={goToSignup}>
-            Start Trial
-          </button>
+          <button className="nav-mobile-link nav-mobile-link--secondary" onClick={goToLogin}>Log In</button>
+          <button className="nav-mobile-link nav-mobile-link--primary" onClick={goToSignup}>Start Trial</button>
         </div>
       </div>
     </div>

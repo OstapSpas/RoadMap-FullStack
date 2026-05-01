@@ -484,10 +484,7 @@ body.dark {
     display: none;
   }
 
-  .nav-login,
-  .nav-trial {
-    display: none; 
-  }
+
 
   .nav-burger {
     display: flex;
