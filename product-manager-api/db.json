@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "id": "4",
+      "title": "Keyboard",
+      "brand": "Logitech",
+      "price": 120,
+      "inStock": true
+    },
+    {
+      "id": "5",
+      "title": "Mobile",
+      "brand": "Samsung",
+      "price": 300,
+      "inStock": true
+    },
+    {
+      "title": "Mouse",
+      "brand": "Razer",
+      "price": 90,
+      "inStock": false,
+      "id": "SfUNITWySRw"
+    },
+    {
+      "title": "MacBook",
+      "brand": "Apple",
+      "price": 1300,
+      "inStock": false,
+      "id": "ilfBTc79BE0"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
