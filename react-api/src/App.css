@@ -1,0 +1,67 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.edit-form.modal {
+  width: 350px;
+  padding: 24px;
+
+  background-color: #ffffff;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.edit-form.modal label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.edit-form.modal input {
+  padding: 10px 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  font-size: 15px;
+}
+
+.edit-form.modal input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.edit-form.modal button {
+  margin-top: 10px;
+  padding: 11px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #4f46e5;
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-form.modal button:hover {
+  background-color: #3730a3;
+}
