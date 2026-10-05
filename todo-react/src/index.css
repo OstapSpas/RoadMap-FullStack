@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f4f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.todo {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo__title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #18181b;
+}
+
+/* Form layout */
+.todo__form {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.todo__field {
+  flex: 1;
+}
+
+/* Floating-label field */
+.field {
+  position: relative;
+}
+
+.field__input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #18181b;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.field__input:focus {
+  border-color: #18181b;
+}
+
+.field__label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 4px;
+  background-color: #ffffff;
+  color: #a1a1aa;
+  font-size: 15px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+/* Label floats up on focus or when input is filled */
+.field:has(.field__input:focus) .field__label,
+.field:has(.field__input:not(:placeholder-shown)) .field__label {
+  top: 0;
+  font-size: 12px;
+  color: #18181b;
+}
+
+/* Add button */
+.button {
+  padding: 0 22px;
+  background-color: #27272a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.button:hover {
+  background-color: #18181b;
+}
+
+/* Info row */
+.todo__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo__total-tasks {
+  font-size: 16px;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.todo__delete-all-button {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+
+.todo__delete-all-button:hover {
+  text-decoration: underline;
+}
+
+/* List */
+.todo__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+}
+
+.todo-item__checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #18181b;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-item__label {
+  flex: 1;
+  font-size: 16px;
+  color: #18181b;
+  cursor: pointer;
+}
+
+/* Struck-through when checked */
+.todo-item:has(.todo-item__checkbox:checked) .todo-item__label {
+  text-decoration: line-through;
+  color: #a1a1aa;
+}
+
+.todo-item__delete-button {
+  display: flex;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-item__delete-button:hover path {
+  stroke: #ef4444;
+}
+
+/* Empty message */
+.todo__empty-message {
+  text-align: center;
+  color: #a1a1aa;
+  font-size: 15px;
+}
