@@ -3,122 +3,154 @@ import './App.css'
 
 
 
+function Box(){
+  
+  useEffect(() => {
+    console.log("Mount");
+    
+  },[])
+  
+  return (
+    
+    <>
+    <p>Test</p>
+    </>
+  );
+}
 
 
+const MAX = 10;
+const MIN = -10;
 
 
 function App() {
 
-  const users = [
-    {id: 1,nameUser: 'Ivan', age: 22, city: "Lviv"},
-    {id: 2,nameUser: 'Petro', age: 26, city: "Kyiv"},
-    {id: 3,nameUser: 'Oleh', age: 29, city: "Dnipro"},
-    {id: 4,nameUser: 'Yaroslav', age: 42, city: "Lviv"},
+  const [show, setShow] = useState(false);
+
+  const [text, setText] = useState('');
   
-  ];
+  const sizes = ["S", "M", "L", "XL"];
+  const [selected, setSelected] = useState(null);
 
-  const [isVisible, setIsVisible] = useState(false);
-  const [count, setCount] = useState(0);
-  const [theme, setTheme] = useState('light');
 
-  const [name,setName] = useState('');
-  const [like, setLike] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
+  const [a, setA] = useState(false);
+  const [b, setB] = useState(false);
 
-  const [items, setItems] = useState([]);
-  const [text, setText] = useState("");
+  const [showBox, setShowBox] = useState(false);
 
-  
-  function increment(){
-    setCount(count + 5);
-  }
-  function decrement() {
-    setCount(prev => prev - count);
-  }
+  const [time,setTime] = useState("");
+  const [theme,setTheme] =useState('light');
 
-  function incrementLikes(){
-    setLikeCount(likeCount + 1);
-  }
+  useEffect(() => {
+    document.body.style.background = theme === "dark" ? "#222" :"#fff"
+  },[theme])
 
-  function handleLog(){
-    console.log('Hello');
+
+  // const sum = Number(a) + Number(b);
+
+    useEffect(() => {
+      setInterval(() => {
+        setTime(new Date().toLocaleTimeString())
+      }, 1000);
+      // console.log(time);
+      
+    },[time]),
+
+  useEffect(() => {
+    console.log("Змінився A:");
     
-  }
+  },[a]);
 
-  function handleAdd() {
-    const value = text.trim();
-    if (value === '') return;
-    setItems(prev => [...prev, { id: Date.now(), text: value }]);
-    setText('');
-  }
+  useEffect(() => {
+    console.log("Змінився B:");
+    
+  },[b])
 
 
-  function handleDelete(idToRemove) {
-    setItems(prev => prev.filter(item => item.id !== idToRemove));
-  }
+    const [count, setCount] = useState(0);
+    const user = {name: "Ostap"}
+
+  useEffect(() => {
+    console.log("Effect: ", );
+    
+  },[user])
+
+    function Increment() {
+      setCount(prev => Math.min(prev + 1,MAX))
+    }
+
+    function Decrement() {
+      setCount(prev => Math.max(prev -1, MIN));
+    }
 
   return (
     <>
-
-    <button 
-    onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))} 
-    style={{ background: theme === "dark" ? "#222" : "#fff", color: theme === "dark" ? "#fff" : "#000" , fontSize: theme === "dark" ? "22px" : "76px" }}>Theme</button>
-
-    <p>{count}</p>
-    <button onClick={increment}>Increment</button>
-    <button onClick={decrement}>Decrement</button>
-    <button onClick={() => setIsVisible(prev => !prev)}>Show</button>
-    
-    <br />
-
-    <input type="text" 
-    onChange={(e) => setName(e.target.value)}
-    />
-    <br />
-    {name ? `Привіт ${name}` : "Введіть ім'я"}
-    {/* <p>{name}</p> */}
-    <br />
-    {isVisible ? "Hide Text" :  "Show Text"}
+    <p>Count: {count}</p>
+    <button onClick={Increment} disabled= {count === MAX}>Increment</button>
+    <button onClick={Decrement} disabled = {count === MIN}>Decrement</button>
+    <button onClick={() => setCount(0)}>Reset</button>
 
     <br />
-    <p>{likeCount}</p>
-    <button 
-    
-    onClick={incrementLikes}>❤️</button>
+      <input type= {show ? 'text' : 'password'} placeholder='Password' />
+
+      <button onClick={() => setShow(prev => !prev)}>{show ? "Приховати"  : "Показати"}</button>
 
 
-    <input type="text" name="" id="" 
-    onChange={(e) => (e.target.value)}
-    />
-
-    <ul>
-      {users.map((user) => (
-        <li key={user.id}>
-            <strong>{user.nameUser}</strong> — {user.age} років, м. {user.city}
-            <button onClick={handleLog}>Delete</button>
-        </li>
-      ))}
-    </ul>
-
-
-      <input type="text" name="" id=""
-      value={text}
-      onChange={(e) => setText(e.target.value)}
+      <input 
+        type="text" 
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        style={{borderColor: text.length > 10 ? 'red' : 'gray', backgroundColor: text.length > 10 ? 'red' : 'white'} }
       />
+      <p style={{color:text.length > 10 ?'red' : 'black'}}>{text.length} / 10</p>
 
 
-        <button onClick={handleAdd}>Add</button>
+      {sizes.map((size) => (
+        <button 
+        key={size}
+        onClick={()=> setSelected(size) }
+        style={{
+          background:size === selected ? "black" : "white",
+          color: size === selected ? "white" : "black",
+        }}
+
+>
+          {size}
+        </button>
+
 
         
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>{item.text}
-            <button onClick={() => handleDelete(item.id)}>X</button>
-          </li>
-          
-        ))}
-      </ul>
+      ))}
 
+
+      <input 
+      type="number"
+       value={a}
+       onChange={(e) => setA(e.target.value)}
+       />
+
+
+       <input 
+       type="number"
+       value={b}
+       onChange={(e) => setB(e.target.value)}
+       />
+
+       {/* <p style={{color: sum > 100 ? 'green' : 'false'}}>Sum: {sum}</p> */}
+
+
+      <button
+      onClick={() => setShowBox(prev => !prev)}
+      >{showBox ? "Сховати" : "Показати"}</button>
+
+      {showBox && <Box />}
+
+      <button onClick={() => setA(prev => !prev)}>Change A</button>
+      <button onClick={() => setB(prev => !prev)}>Change B</button>
+
+        <p>{time}</p>
+
+        <button onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}>Change Theme</button>
     </>
   )
 }
