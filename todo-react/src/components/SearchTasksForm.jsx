@@ -1,6 +1,6 @@
 import Field from "./Field";
 
-const SearchTasksForm = ({onSearchInput}) => {
+const SearchTasksForm = ({searchQuery,setSearchQuery}) => {
   return (
     <form className="todo__form"
       onSubmit={(e) => e.preventDefault()}
@@ -10,7 +10,8 @@ const SearchTasksForm = ({onSearchInput}) => {
       label="Search Task"
       id="search-task"
       type="search"
-      onInput={(e) => onSearchInput(e.target.value) }
+      value={searchQuery}
+      onInput={(e) => setSearchQuery(e.target.value) }
       />
     </form>
   );
