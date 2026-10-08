@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef} from 'react';
 
 import AddTaskForm from './AddTaskForm';
 import SearchTasksForm from './SearchTasksForm';
@@ -33,8 +33,10 @@ const Todo = () => {
     });
 
 
-    const [newTaskTitle, setNewTaskTitle] = useState('')
-
+    // const [newTaskTitle, setNewTaskTitle] = useState('')
+    const newTaskInputRef = useRef(null);
+    console.log('newTaskInputRef', newTaskInputRef);
+    
     const [searchQuery,setSearchQuery] = useState('');
 
 
@@ -74,17 +76,20 @@ const Todo = () => {
 
     const onSubmitTask = () => {
         // console.log('Task added!');
-        if (newTaskTitle.trim().length > 0) {
-            const newTask = {
-                id: crypto?.randomUUID() ?? Date.now().toString(),
-                title: newTaskTitle,
-                isDone: false,
-            }
+        // if (newTaskTitle.trim().length > 0) {
+        //     const newTask = {
+        //         id: crypto?.randomUUID() ?? Date.now().toString(),
+        //         title: newTaskTitle,
+        //         isDone: false,
+        //     }
 
-            setTasks([...tasks, newTask]);
-            setNewTaskTitle('')
-            setSearchQuery('');
-        }
+        //     setTasks([...tasks, newTask]);
+        //     setNewTaskTitle('')
+        //     setSearchQuery('');
+        // }
+
+    console.log('newTaskInputRef', newTaskInputRef);
+        
     }
 
 
@@ -109,8 +114,9 @@ const Todo = () => {
             <AddTaskForm
 
                 onSubmitTask={onSubmitTask}
-                newTaskTitle={newTaskTitle}
-                setNewTaskTitle={setNewTaskTitle}
+                // newTaskTitle={newTaskTitle}
+                // setNewTaskTitle={setNewTaskTitle}
+                newTaskInputRef = {newTaskInputRef}
             />
 
             <SearchTasksForm
